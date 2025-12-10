@@ -54,6 +54,6 @@ public class Factura {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "persona_id")
-    @JsonIgnore // Importante para evitar errores al convertir a JSON
+    @JsonIgnore
     private Persona persona;
 }

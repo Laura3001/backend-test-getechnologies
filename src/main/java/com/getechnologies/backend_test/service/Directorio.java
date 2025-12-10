@@ -3,7 +3,7 @@ package com.getechnologies.backend_test.service;
 import com.getechnologies.backend_test.model.Persona;
 import com.getechnologies.backend_test.repository.PersonaRepository;
 import com.getechnologies.backend_test.exception.ResourceNotFoundException;
-import org.slf4j.Logger; // Librería SLF4J recomendada [cite: 26]
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +35,6 @@ public class Directorio {
     public void deletePersonaByIdentificacion(String identificacion) {
         Persona p = findPersonaByIdentificacion(identificacion);
         logger.info("Eliminando persona e información relacionada: " + identificacion);
-        personaRepository.delete(p); // Al borrar esto, JPA borra las facturas por el CascadeType.ALL
+        personaRepository.delete(p); // Al borrar esto, JPA borra las facturas
     }
 }

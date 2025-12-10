@@ -66,7 +66,7 @@ public class Persona {
     @NotNull(message = "El apellido paterno es obligatorio")
     private String apellidoPaterno;
 
-    private String apellidoMaterno; // Es opcional según el doc
+    private String apellidoMaterno;
 
     @NotNull(message = "La identificación es obligatoria")
     @Column(unique = true)

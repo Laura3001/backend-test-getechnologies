@@ -16,15 +16,15 @@ public class FacturaRestService {
     @Autowired
     private Ventas ventas;
 
-    // POST: Crear una factura para una persona específica
-    // Ejemplo URL: localhost:8080/api/ventas/INE001/factura
+    // POST: Crear una factura para una persona de acuerdo a la identificacion
+    // Ejemplo URL: localhost:8080/api/ventas/ID001/factura
     @PostMapping("/{identificacion}/factura")
     public ResponseEntity<Factura> createFactura(@PathVariable String identificacion, @RequestBody Factura factura) {
         return new ResponseEntity<>(ventas.storeFactura(identificacion, factura), HttpStatus.CREATED);
     }
 
     // GET: Ver todas las facturas de una persona
-    // Ejemplo URL: localhost:8080/api/ventas/INE001/factura
+    // Ejemplo URL: localhost:8080/api/ventas/ID001/factura
     @GetMapping("/{identificacion}/factura")
     public ResponseEntity<List<Factura>> getFacturasByPersona(@PathVariable String identificacion) {
         return ResponseEntity.ok(ventas.findFacturasByPersona(identificacion));

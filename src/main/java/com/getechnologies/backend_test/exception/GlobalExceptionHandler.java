@@ -16,5 +16,5 @@ public class GlobalExceptionHandler {
         error.put("status", "404");
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
-    // Aquí podrías agregar más métodos para validar @NotNull, etc.
+
 }

@@ -14,21 +14,21 @@ public class Ventas {
     private FacturaRepository facturaRepository;
 
     @Autowired
-    private Directorio directorio; // Reusamos el servicio de Directorio para buscar personas
+    private Directorio directorio;
 
     public Factura storeFactura(String identificacionPersona, Factura factura) {
-        // 1. Buscamos a la persona (si no existe, el servicio Directorio lanzará el error 404)
+        // Busca a la persona (si no existe, el servicio Directorio lanza error 404)
         Persona persona = directorio.findPersonaByIdentificacion(identificacionPersona);
 
-        // 2. Vinculamos la factura a esa persona
+        // Vincula la factura a la persona
         factura.setPersona(persona);
 
-        // 3. Guardamos
+        // Guardar
         return facturaRepository.save(factura);
     }
 
     public List<Factura> findFacturasByPersona(String identificacion) {
         Persona persona = directorio.findPersonaByIdentificacion(identificacion);
-        return persona.getFacturas(); // Devuelve la lista gracias a la relación @OneToMany
+        return persona.getFacturas(); // Devuelve la lista
     }
 }
