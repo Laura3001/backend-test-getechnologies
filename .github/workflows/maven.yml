@@ -27,5 +27,5 @@ jobs:
         run: ./mvnw clean package
 
       # 4. Construicción de la imagen en Docker
-      - name: Build Docker Image
+      - name: Build Dockerfile Image
         run: docker build . --file Dockerfile --tag backend-test:latest
